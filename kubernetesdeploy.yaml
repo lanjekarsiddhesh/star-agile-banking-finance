@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bankapp-eta-deploy
+  name: insurance-eta-deploy
   labels:
-    app: bankapp-eta-app
+    app: insurance-eta-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: bankapp-eta-app
+      app: insurance-eta-app
   template:
     metadata:
       labels:
-        app: bankapp-eta-app
+        app: insurance-eta-app
     spec:
       containers:
-      - name: bankapp-eta-container
+      - name: insurance-eta-container
         image: lanjekarsiddhesh/insurance-eta-app
         ports:
         - containerPort: 8082
@@ -23,12 +23,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bankapp-eta-np-service
+  name:insurance-eta-np-service
   labels:
-    app: bankapp-eta-app
+    app: insurance-eta-app
 spec:
   selector:
-    app: bankapp-eta-app
+    app: insurance-eta-app
 
   type: NodePort
   ports:
